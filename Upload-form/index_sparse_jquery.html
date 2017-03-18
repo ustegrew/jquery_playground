@@ -5,6 +5,17 @@
         <script>
 var gTeamNames      = ["Dolphins", "Robin Hood", "Wild Boars"];
 var gTypeNames      = ["Advert", "Feature", "Ident", "Interview"];
+var gPath           = "<empty>";
+
+function Handle_Click (id)
+{
+    var team            = $("#lstTeams").val();
+    var type            = $("#lstTypes").val();
+    var path            = $("#txtLocalPath").val();
+
+    window.alert ("Clicked: " + id + " with: Team: " + team + ", Type: " + type + ", Path: " + gPath);
+}
+
 $(document).ready(
     function ()
     {
@@ -33,6 +44,31 @@ $(document).ready(
                 lstTypes.append ("<option value='" + n + "'>" + n + "</option>");
             }
         );
+
+        $("#btnCancel")
+            .width("100px")
+            .click(
+                function (event)
+                {
+                    Handle_Click ("cancel");
+                }
+            );
+        $("#btnOK")
+            .width("100px")
+            .click(
+                function (event)
+                {
+                    Handle_Click ("ok");
+                }
+            );
+        $("#txtLocalPath")
+            .change(
+                function ()
+                {
+                    gPath = $("#txtLocalPath").val ();
+                }
+            );
+        
     }
 );
         </script>
@@ -112,7 +148,9 @@ body
 
 #p0_1_1
 {
-    width:                      180px;
+    width:                      400px;
+    text-align:                 right;
+    padding-right:              20px;
 }
 
 #lstTeams
@@ -135,13 +173,11 @@ body
 #btnCancel
 {
     margin-top:                 10px;
-    width:                      80px;
 }
 
 #btnOK
 {
     margin-top:                 10px;
-    width:                      80px;
 }
         </style>
     </head>
