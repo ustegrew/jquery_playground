@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+    <head>
+        <script src="jquery/jquery-3.2.0.min.js"></script>
+        <script>
+var gTeamNames      = ["Dolphins", "Robin Hood", "Wild Boars"];
+var gTypeNames      = ["Advert", "Feature", "Ident", "Interview"];
+$(document).ready(
+    function ()
+    {
+        var     lstTeams;
+        var     lstTypes;
+        
+        lstTeams    = $("#lstTeams");
+        lstTypes    = $("#lstTypes");
+        
+        $(gTeamNames).each 
+        (
+            function (i)
+            {
+                var n = gTeamNames [i];
+                
+                lstTeams.append ("<option value='" + n + "'>" + n + "</option>");
+            }
+        );
+
+        $(gTypeNames).each 
+        (
+            function (i)
+            {
+                var n = gTypeNames [i];
+                
+                lstTypes.append ("<option value='" + n + "'>" + n + "</option>");
+            }
+        );
+    }
+);
+        </script>
+        <style>
+body
+{
+    font-family:                sans-serif;
+}
+
+.label
+{
+    font-weight:                bold;
+    margin-bottom:              1em;
+}
+
+#p0
+{
+    width:                      1024px;
+    border:                     5px solid blue;
+    border-radius:              10px;
+}
+
+#p0_0
+{
+    margin:                     10px;
+    height:                     400px;
+    display:                    flex;
+    flex-direction:             row;
+    justify-content:            space-between;
+}
+
+#p0_0_0
+{
+    border-radius:              10px;
+    background-color:           #f0f0f0;
+    margin-right:               10px;
+    width:                      150px;
+    padding:                    15px;
+}
+
+#p0_0_1
+{
+    border-radius:              10px;
+    background-color:           #f0f0f0;
+    margin-right:               10px;
+    width:                      150px;
+    padding:                    15px;
+}
+
+#p0_0_2
+{
+    border-radius:              10px;
+    background-color:           #f0f0f0;
+    flex-grow:                  1;
+    flex-shrink:                1;
+    flex-basis:                 auto;
+    padding:                    15px;
+}
+
+#p0_1
+{
+    display:                    flex;
+    flex-direction:             row;
+    justify-content:            space-between;
+    height:                     40px;
+    margin:                     10px;
+    border-radius:              10px;
+    background-color:           #f0f0f0;
+}
+
+#p0_1_0
+{
+    flex-grow:                  1;
+    flex-shrink:                1;
+    flex-basis:                 auto;
+}
+
+#p0_1_1
+{
+    width:                      180px;
+}
+
+#lstTeams
+{
+    width:                      99%;
+}
+
+#lstTypes
+{
+    width:                      99%;
+}
+
+#txtLocalPath
+{
+    border:                     1px dotted blue;
+    padding:                    2px;
+    width:                      99%;
+}
+
+#btnCancel
+{
+    margin-top:                 10px;
+    width:                      80px;
+}
+
+#btnOK
+{
+    margin-top:                 10px;
+    width:                      80px;
+}
+        </style>
+    </head>
+    <body>
+        <h1>Submit audio</h1>
+        <div id="p0">
+            <div id="p0_0">
+                <!-- Data entry -->
+                <div id="p0_0_0">
+                    <!-- Team -->
+                    <div class="label">Team</div>
+                    <select id="lstTeams"></select>
+                </div>
+                <div id="p0_0_1">
+                    <!-- Type -->
+                    <div class="label">Type</div>
+                    <select id="lstTypes"></select>
+                </div>
+                <div id="p0_0_2">
+                    <!-- File browser -->
+                    <div class="label">File</div>
+                    <input type="file" id="txtLocalPath"/>
+                </div>
+            </div>
+            <div id="p0_1">
+                <!-- OK/Cancel buttons -->
+                <div id="p0_1_0">
+                    &nbsp;
+                </div>
+                <div id="p0_1_1">
+                    <button id="btnOK">OK</button>
+                    <button id="btnCancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
